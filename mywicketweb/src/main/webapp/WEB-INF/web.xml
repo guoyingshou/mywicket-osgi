@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_1.xsd"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_3_1.xsd"
+         id="mytest"
+         metadata-complete="false"
+         version="3.1">
+
+     <!--
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+
+  <filter>
+    <filter-name>characterEncodingFilter</filter-name>
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>utf-8</param-value>
+    </init-param>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>characterEncodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <filter>
+    <filter-name>springSecurityFilterChain</filter-name>
+    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>springSecurityFilterChain</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+ 
+  <servlet>
+    <servlet-name>social</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>social</servlet-name>
+    <url-pattern>/*</url-pattern>
+  </servlet-mapping>
+  -->
+
+
+  <filter>
+    <filter-name>MyWicketApp</filter-name>
+    <filter-class>org.apache.wicket.protocol.http.WicketFilter</filter-class>
+    <init-param>
+        <param-name>applicationClassName</param-name>
+        <param-value>com.tissue.osgi.web.wicket.MyApplication</param-value>
+    </init-param>
+    <!--
+    <init-param>
+        <param-name>ignorePaths</param-name>
+        <param-value>git/</param-value>
+    </init-param>
+-->
+  </filter>
+
+  <filter-mapping>
+    <filter-name>MyWicketApp</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <!--
+   <filter>
+     <filter-name>GitFilter</filter-name>
+     <filter-class>org.eclipse.jgit.http.server.GitFilter</filter-class>
+     <init-param>
+         <param-name>base-path</param-name>
+         <param-value>/home/guoyingshou/tmp/repos</param-value>
+     </init-param>
+     <init-param>
+         <param-name>export-all</param-name>
+         <param-value>true</param-value>
+     </init-param>
+   </filter>
+   <filter-mapping>
+     <filter-name>GitFilter</filter-name>
+     <url-pattern>/git/*</url-pattern>
+   </filter-mapping>
+   <filter-mapping>
+     <filter-name>GitFilter</filter-name>
+     <url-pattern>/r/*</url-pattern>
+   </filter-mapping>
+   -->
+
+  <!--
+   <servlet>
+       <servlet-name>GitServlet</servlet-name>
+       <servlet-class>org.eclipse.jgit.http.server.GitServlet</servlet-class>
+       <init-param>
+           <param-name>base-path</param-name>
+           <param-value>/home/guoyingshou/tmp/repos</param-value>
+       </init-param>
+       <init-param>
+           <param-name>export-all</param-name>
+           <param-value>1</param-value>
+       </init-param>
+   </servlet>
+
+   <servlet-mapping>
+          <servlet-name>GitServlet</servlet-name>
+          <url-pattern>/git/*</url-pattern>
+   </servlet-mapping>
+
+   <security-constraint>
+       <web-resource-collection>
+           <web-resource-name>git repo</web-resource-name>
+           <url-pattern>/git/*</url-pattern>
+           <http-method>GET</http-method>
+           <http-method>POST</http-method>
+       </web-resource-collection>
+
+       <auth-constraint>
+           <role-name>daronglu</role-name>
+       </auth-constraint>
+
+       <user-data-constraint>
+           <transport-guarantee>NONE</transport-guarantee>
+       </user-data-constraint>
+   </security-constraint>
+
+   <login-config>
+       <auth-method>BASIC</auth-method>
+   </login-config>
+   -->
+
+   <servlet>
+    <servlet-name>mytest</servlet-name>
+    <servlet-class>com.tissue.osgi.web.servlets.MyServlet</servlet-class>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>mytest</servlet-name>
+    <url-pattern>/mytest</url-pattern>
+  </servlet-mapping>
+       
+ <error-page>
+     <error-code>404</error-code>
+     <location>/pageNotFound</location>
+ </error-page>
+
+</web-app>
