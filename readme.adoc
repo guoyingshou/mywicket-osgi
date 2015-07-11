@@ -7,7 +7,7 @@ Steps to instal a wab in karaf
     $ bundle:install mvn:org.apache.wicket/wicket-util/7.0.0-SNAPSHOT
     $ bundle:install mvn:org.apache.wicket/wicket-request/7.0.0-SNAPSHOT
     $ bundle:install mvn:org.apache.wicket/wicket-core/7.0.0-SNAPSHOT
-    $ bundle:install commons-io/commons-io/2.4
+    $ bundle:install mvn:commons-io/commons-io/2.4
 
 3, install wab:
     $ bundle:install mvn:com.tissue.osgi/mywicketweb/1.0.0-SNAPSHOT/war
